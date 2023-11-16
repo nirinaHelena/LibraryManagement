@@ -1,7 +1,14 @@
 package com.libraryManagement.model;
 
+import lombok.*;
+
 import java.text.DateFormat;
 
+@AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
 public class Book {
     private String id;
     private String bookName;
