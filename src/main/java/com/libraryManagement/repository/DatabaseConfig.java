@@ -10,9 +10,9 @@ public class DatabaseConfig {
     private String password;
 
     public DatabaseConfig(){
-        this.url = "jdbc: postgresql://localhost/library_management";
-        this.username = "postgres";
-        this.password = "0000";
+        this.url = System.getenv("DB_URL");
+        this.username = System.getenv("DB_USER");
+        this.password = System.getenv("DB_PASSWORD");
     }
 
     public Connection createConnection(){
