@@ -35,7 +35,12 @@ public class SubscribersCrudOperations implements CrudOperations<Subscribers> {
 
     @Override
     public List<Subscribers> saveAll(List<Subscribers> toSave) {
-        return null;
+        List<Subscribers> savedSubscribers= new ArrayList<>();
+        for (Subscribers subscribers: toSave){
+            save(subscribers);
+            savedSubscribers.add(subscribers);
+        }
+        return savedSubscribers;
     }
 
     @Override
