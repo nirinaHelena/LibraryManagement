@@ -58,6 +58,7 @@ public class BookCrudOperations implements CrudOperations<Book> {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        return toSave;
     }
 
     @Override
