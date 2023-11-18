@@ -26,7 +26,7 @@ public class BookCrudOperations implements CrudOperations<Book> {
 
                 Book book= new Book(id, bookName, author,
                         pageNumbers,topic, releaseDate, available);
-
+                allBook.add(book);
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -41,7 +41,23 @@ public class BookCrudOperations implements CrudOperations<Book> {
 
     @Override
     public Book save(Book toSave) {
-        return null;
+        String sql= "insert into book (bookName, author, pageNumbers," +
+                "releaseDate, topic, available) values (?, ?, ?, ?, ?, ?) ;";
+
+        try (Connection connection= databaseConfig.createConnection();
+            PreparedStatement preparedStatement= connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
+        ){
+            preparedStatement.setString(1, toSave.getBookName());
+            preparedStatement.setInt(2, toSave.getAuthor());
+            preparedStatement.setInt(3, toSave.getPageNumbers());
+            preparedStatement.setDate(4, Date.valueOf(toSave.getReleaseDate()));
+            preparedStatement.setString(5, toSave.getTopic());
+            preparedStatement.setBoolean(6, toSave.getAvailable());
+
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
