@@ -3,6 +3,7 @@ package com.libraryManagement.model;
 import lombok.*;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @Getter
@@ -12,9 +13,9 @@ import java.text.DateFormat;
 public class Book {
     private String id;
     private String bookName;
-    private Author author;
+    private int author;
     private int pageNumbers;
-    private Topic topic;
-    private DateFormat realeseDate;
+    private String topic;
+    private LocalDate releaseDate;
     private Boolean available;
 }
