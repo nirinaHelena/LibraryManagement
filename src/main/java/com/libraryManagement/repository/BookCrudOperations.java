@@ -50,7 +50,7 @@ public class BookCrudOperations implements CrudOperations<Book> {
                 "releaseDate, topic, available) values (?, ?, ?, ?, ?, ?) ;";
 
         try (Connection connection= databaseConfig.createConnection();
-            PreparedStatement preparedStatement= connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
+            PreparedStatement preparedStatement= connection.prepareStatement(sql)
         ){
             preparedStatement.setString(1, toSave.getBookName());
             preparedStatement.setInt(2, toSave.getAuthor());
@@ -68,6 +68,16 @@ public class BookCrudOperations implements CrudOperations<Book> {
 
     @Override
     public void delete(Book toDelete) {
+        String sql= "delete from book where id= ? ;";
 
+        try (Connection connection= databaseConfig.createConnection();
+            PreparedStatement preparedStatement= connection.prepareStatement(sql)
+        ){
+          preparedStatement.setInt(1, Integer.parseInt(toDelete.getId()));
+          preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }
