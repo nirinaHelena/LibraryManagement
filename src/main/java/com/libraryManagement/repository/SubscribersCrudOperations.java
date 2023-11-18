@@ -3,6 +3,7 @@ package com.libraryManagement.repository;
 import com.libraryManagement.model.Author;
 import com.libraryManagement.model.Subscribers;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,7 +40,20 @@ public class SubscribersCrudOperations implements CrudOperations<Subscribers> {
 
     @Override
     public Subscribers save(Subscribers toSave) {
-        return null;
+        String sql= "insert into subscribers (subscriberName, subscriberReference)" +
+                "values (?, ?) ;";
+
+        try (Connection connection= databaseConfig.createConnection();
+             PreparedStatement preparedStatement= connection.prepareStatement(sql)
+        ){
+            preparedStatement.setString(1, toSave.getUserName());
+            preparedStatement.setString(2, toSave.getUserReference());
+
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return toSave;
     }
 
     @Override
