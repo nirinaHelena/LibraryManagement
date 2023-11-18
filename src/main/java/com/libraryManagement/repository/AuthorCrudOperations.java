@@ -3,9 +3,7 @@ package com.libraryManagement.repository;
 import com.libraryManagement.model.Author;
 import com.libraryManagement.model.Book;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +38,20 @@ public class AuthorCrudOperations implements CrudOperations<Author> {
 
     @Override
     public Author save(Author toSave) {
-        return null;
+        String sql= "insert into author (authorName, sex)" +
+                "values (?, ?) ;";
+
+        try (Connection connection= databaseConfig.createConnection();
+             PreparedStatement preparedStatement= connection.prepareStatement(sql)
+        ){
+            preparedStatement.setString(1, toSave.getAuthorName());
+            preparedStatement.setString(2, String.valueOf(toSave.getSex()));
+
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return toSave;
     }
 
     @Override
