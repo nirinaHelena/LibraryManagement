@@ -33,7 +33,12 @@ public class AuthorCrudOperations implements CrudOperations<Author> {
 
     @Override
     public List<Author> saveAll(List<Author> toSave) {
-        return null;
+        List<Author> savedAuthor= new ArrayList<>();
+        for (Author author: toSave){
+            save(author);
+            savedAuthor.add(author);
+        }
+        return savedAuthor;
     }
 
     @Override
