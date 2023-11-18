@@ -4,7 +4,7 @@ create table if not exists book(
     author integer references author(id),
     pageNumbers integer ,
     topic TOPIC ,
-    realeaseDate date,
+    releaseDate date,
     is_available boolean not null
 );
 
