@@ -36,7 +36,12 @@ public class BookCrudOperations implements CrudOperations<Book> {
 
     @Override
     public List<Book> saveAll(List<Book> toSave) {
-        return null;
+        List<Book> savedBooks= new ArrayList<>();
+        for (Book book: toSave){
+            save(book);
+            savedBooks.add(book);
+        }
+        return savedBooks;
     }
 
     @Override
