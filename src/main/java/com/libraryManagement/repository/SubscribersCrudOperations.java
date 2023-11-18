@@ -63,6 +63,16 @@ public class SubscribersCrudOperations implements CrudOperations<Subscribers> {
 
     @Override
     public void delete(Subscribers toDelete) {
+        String sql= "delete from subscribers where id= ? ;";
 
+        try (Connection connection= databaseConfig.createConnection();
+             PreparedStatement preparedStatement= connection.prepareStatement(sql)
+        ){
+            preparedStatement.setInt(1, Integer.parseInt(toDelete.getIdUser()));
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }
