@@ -6,4 +6,4 @@ create table if not exists book(
     topic TOPIC ,
     realeaseDate date,
     is_available boolean not null
-)
+);
