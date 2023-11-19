@@ -28,13 +28,4 @@ public class Book {
         this.available = available;
     }
 
-    public Book(String id, String bookName, int author, int pageNumbers, String topic, LocalDate releaseDate, Boolean available) {
-        this.id = id;
-        this.bookName = bookName;
-        this.author = author;
-        this.pageNumbers = pageNumbers;
-        this.topic = topic;
-        this.releaseDate = releaseDate;
-        this.available = available;
-    }
 }
