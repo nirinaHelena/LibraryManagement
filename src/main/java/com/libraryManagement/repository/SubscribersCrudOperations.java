@@ -20,11 +20,11 @@ public class SubscribersCrudOperations implements CrudOperations<Subscribers> {
         try (PreparedStatement preparedStatement= databaseConfig.createConnection().prepareStatement(sql)){
             ResultSet resultSet= preparedStatement.executeQuery();
             while (resultSet.next()){
-                String id= String.valueOf(resultSet.getInt("id"));
+                String id= String.valueOf(resultSet.getInt("subscriberId"));
                 String authorName= resultSet.getString("subscriberName");
                 String reference= resultSet.getString("subscriberReference");
 
-                Subscribers subscribers= new Subscribers(id, authorName, reference);
+                Subscribers subscribers= new Subscribers(id,authorName, reference);
                 allSubscribers.add(subscribers);
             }
         }catch (SQLException e){
