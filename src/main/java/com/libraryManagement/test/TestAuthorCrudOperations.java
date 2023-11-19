@@ -1,12 +1,8 @@
 package com.libraryManagement.test;
 
 import com.libraryManagement.model.Author;
-import com.libraryManagement.model.Book;
-import com.libraryManagement.model.Topic;
 import com.libraryManagement.repository.AuthorCrudOperations;
-import com.libraryManagement.repository.BookCrudOperations;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class TestAuthorCrudOperations {
