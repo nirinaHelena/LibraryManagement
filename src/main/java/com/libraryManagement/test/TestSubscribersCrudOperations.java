@@ -18,20 +18,21 @@ public class TestSubscribersCrudOperations {
             for (Subscribers subscribers: allSubscribers){
                 System.out.println(subscribers);
             }
-            /*
+
             // test method save()
-            Author newAuthor= new Author("Grimm", 'F');
-            System.out.println("test method save a author: ");
-            authorCrudOperations.save(newAuthor);
-            System.out.println("New book added: "+ newAuthor);
+            Subscribers newSubscriber= new Subscribers("subscriber 1", "069798");
+            System.out.println("test method save a subscriber: ");
+            subscribersCrudOperations.save(newSubscriber);
+            System.out.println("New book added: "+ newSubscriber);
 
             //test method findAll() after adding
-            System.out.println("test method find all after adding: ");
-            allAuthors= authorCrudOperations.findAll();
-            System.out.println("all Books:");
-            for (Author author: allAuthors){
-                System.out.println(author);
+            System.out.println("test find all method:");
+            allSubscribers= subscribersCrudOperations.findAll();
+            System.out.println("all subscribers:");
+            for (Subscribers subscribers: allSubscribers){
+                System.out.println(subscribers);
             }
+            /*
             // Test method delete()
             System.out.println("test method delete: ");
             if (!allAuthors.isEmpty()) {
