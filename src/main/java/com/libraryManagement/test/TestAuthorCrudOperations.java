@@ -33,24 +33,23 @@ public class TestAuthorCrudOperations {
             for (Author author: allAuthors){
                 System.out.println(author);
             }
-            /*
             // Test method delete()
             System.out.println("test method delete: ");
-            if (!allBooks.isEmpty()) {
-                Book bookToDelete = allBooks.get(0);
-                bookCrudOperations.delete(bookToDelete);
-                System.out.println("Deleted Book: " + bookToDelete);
+            if (!allAuthors.isEmpty()) {
+                Author authoToDelete = allAuthors.get(0);
+                authorCrudOperations.delete(authoToDelete);
+                System.out.println("Deleted Book: " + authoToDelete);
             }
 
             // Test method findAll() après la suppression
             System.out.println("test method findAll after delte: ");
-            allBooks = bookCrudOperations.findAll();
+            allAuthors = authorCrudOperations.findAll();
             System.out.println("All Books after deletion:");
-            for (Book book : allBooks) {
-                System.out.println(book);
+            for (Author author : allAuthors) {
+                System.out.println(author);
             }
 
-             */
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("An error occurred: "+ e.getMessage());
