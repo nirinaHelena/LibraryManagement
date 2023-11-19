@@ -4,12 +4,12 @@ create table if not exists author(
     authorName varchar not null,
     sex char not null,
     check(
-        sex='M' or 'F'
+        sex in ('M', 'F')
     )
 );
 
 -- ajout de 3 lignes de données:
-insert into book (authorName, sex)
+insert into author (authorname, sex)
 values
-("Author 1", 'F'),
-("Author 2", 'M');
+('Author 1', 'F'),
+('Author 2', 'M');

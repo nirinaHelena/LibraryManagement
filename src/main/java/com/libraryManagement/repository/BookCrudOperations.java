@@ -1,6 +1,8 @@
 package com.libraryManagement.repository;
 
 import com.libraryManagement.model.Book;
+import com.libraryManagement.model.Topic;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,11 +23,11 @@ public class BookCrudOperations implements CrudOperations<Book> {
                 int author= resultSet.getInt("author");
                 int pageNumbers= resultSet.getInt("pageNumbers");
                 LocalDate releaseDate= resultSet.getDate("releaseDate").toLocalDate();
-                String topic= resultSet.getString("topic");
+                Topic topic= Topic.toTopic(resultSet.getString("topic"));
                 Boolean available= resultSet.getBoolean("available");
 
                 Book book= new Book(id, bookName, author,
-                        pageNumbers,topic, releaseDate, available);
+                        pageNumbers,Topic.valueOf(String.valueOf(topic)), releaseDate, available);
                 allBook.add(book);
             }
         }catch (SQLException e){
@@ -47,7 +49,7 @@ public class BookCrudOperations implements CrudOperations<Book> {
     @Override
     public Book save(Book toSave) {
         String sql= "insert into book (bookName, author, pageNumbers," +
-                "releaseDate, topic, available) values (?, ?, ?, ?, ?, ?) ;";
+                "releaseDate, topic, available) values (?, ?, ?, ?, ?::topic, ?) ;";
 
         try (Connection connection= databaseConfig.createConnection();
             PreparedStatement preparedStatement= connection.prepareStatement(sql)
@@ -56,7 +58,7 @@ public class BookCrudOperations implements CrudOperations<Book> {
             preparedStatement.setInt(2, toSave.getAuthor());
             preparedStatement.setInt(3, toSave.getPageNumbers());
             preparedStatement.setDate(4, Date.valueOf(toSave.getReleaseDate()));
-            preparedStatement.setString(5, toSave.getTopic());
+            preparedStatement.setString(5, toSave.getTopic().name());
             preparedStatement.setBoolean(6, toSave.getAvailable());
 
             preparedStatement.executeUpdate();
