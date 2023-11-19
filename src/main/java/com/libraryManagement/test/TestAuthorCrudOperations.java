@@ -20,21 +20,20 @@ public class TestAuthorCrudOperations {
             for (Author author: allAuthors){
                 System.out.println(author);
             }
-            /*
             // test method save()
-            Book newBook=  new Book("New book", 5, 200, Topic.OTHER, LocalDate.of(2023,01,01),
-                    true);
-            System.out.println("test method save a book: ");
-            bookCrudOperations.save(newBook);
-            System.out.println("New book added: "+ newBook);
+            Author newAuthor= new Author("Grimm", 'F');
+            System.out.println("test method save a author: ");
+            authorCrudOperations.save(newAuthor);
+            System.out.println("New book added: "+ newAuthor);
 
             //test method findAll() after adding
             System.out.println("test method find all after adding: ");
-            allBooks= bookCrudOperations.findAll();
+            allAuthors= authorCrudOperations.findAll();
             System.out.println("all Books:");
-            for (Book book: allBooks){
-                System.out.println(book);
+            for (Author author: allAuthors){
+                System.out.println(author);
             }
+            /*
             // Test method delete()
             System.out.println("test method delete: ");
             if (!allBooks.isEmpty()) {
