@@ -23,7 +23,7 @@ public class TestSubscribersCrudOperations {
             Subscribers newSubscriber= new Subscribers("subscriber 1", "069798");
             System.out.println("test method save a subscriber: ");
             subscribersCrudOperations.save(newSubscriber);
-            System.out.println("New book added: "+ newSubscriber);
+            System.out.println("New subscriber added: "+ newSubscriber);
 
             //test method findAll() after adding
             System.out.println("test find all method:");
@@ -32,25 +32,22 @@ public class TestSubscribersCrudOperations {
             for (Subscribers subscribers: allSubscribers){
                 System.out.println(subscribers);
             }
-            /*
             // Test method delete()
             System.out.println("test method delete: ");
-            if (!allAuthors.isEmpty()) {
-                Author authoToDelete = allAuthors.get(0);
-                authorCrudOperations.delete(authoToDelete);
-                System.out.println("Deleted Book: " + authoToDelete);
+            if (!allSubscribers.isEmpty()) {
+                Subscribers subscribersToDelete = allSubscribers.get(0);
+                subscribersCrudOperations.delete(subscribersToDelete);
+                System.out.println("Deleted subscribers: " + subscribersToDelete);
             }
 
             // Test method findAll() après la suppression
             System.out.println("test method findAll after delte: ");
-            allAuthors = authorCrudOperations.findAll();
-            System.out.println("All Books after deletion:");
-            for (Author author : allAuthors) {
-                System.out.println(author);
+            allSubscribers = subscribersCrudOperations.findAll();
+            System.out.println("All subscribers after deletion:");
+            for (Subscribers subscribers: allSubscribers) {
+                System.out.println(subscribers);
             }
 
-
-             */
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("An error occurred: "+ e.getMessage());

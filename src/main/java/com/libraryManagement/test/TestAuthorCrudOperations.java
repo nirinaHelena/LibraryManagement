@@ -20,12 +20,12 @@ public class TestAuthorCrudOperations {
             Author newAuthor= new Author("Grimm", 'F');
             System.out.println("test method save a author: ");
             authorCrudOperations.save(newAuthor);
-            System.out.println("New book added: "+ newAuthor);
+            System.out.println("New author added: "+ newAuthor);
 
             //test method findAll() after adding
             System.out.println("test method find all after adding: ");
             allAuthors= authorCrudOperations.findAll();
-            System.out.println("all Books:");
+            System.out.println("all author:");
             for (Author author: allAuthors){
                 System.out.println(author);
             }
@@ -34,13 +34,13 @@ public class TestAuthorCrudOperations {
             if (!allAuthors.isEmpty()) {
                 Author authoToDelete = allAuthors.get(0);
                 authorCrudOperations.delete(authoToDelete);
-                System.out.println("Deleted Book: " + authoToDelete);
+                System.out.println("Deleted author: " + authoToDelete);
             }
 
             // Test method findAll() après la suppression
             System.out.println("test method findAll after delte: ");
             allAuthors = authorCrudOperations.findAll();
-            System.out.println("All Books after deletion:");
+            System.out.println("All author after deletion:");
             for (Author author : allAuthors) {
                 System.out.println(author);
             }
