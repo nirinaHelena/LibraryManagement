@@ -18,4 +18,23 @@ public class Book {
     private String topic;
     private LocalDate releaseDate;
     private Boolean available;
+
+    public Book(String bookName, int author, int pageNumbers, String topic, LocalDate releaseDate, Boolean available) {
+        this.bookName = bookName;
+        this.author = author;
+        this.pageNumbers = pageNumbers;
+        this.topic = topic;
+        this.releaseDate = releaseDate;
+        this.available = available;
+    }
+
+    public Book(String id, String bookName, int author, int pageNumbers, String topic, LocalDate releaseDate, Boolean available) {
+        this.id = id;
+        this.bookName = bookName;
+        this.author = author;
+        this.pageNumbers = pageNumbers;
+        this.topic = topic;
+        this.releaseDate = releaseDate;
+        this.available = available;
+    }
 }
