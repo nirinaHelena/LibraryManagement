@@ -26,31 +26,29 @@ public class TestBookCrudOperations {
             bookCrudOperations.save(newBook);
             System.out.println("New book added: "+ newBook);
 
-            /**
-             * // test method findAll() after adding
-             *             System.out.println("test method find all after adding: ");
-             *             allBooks= bookCrudOperations.findAll();
-             *             System.out.println("all Books:");
-             *             for (Book book: allBooks){
-             *                 System.out.println(book);
-             *             }
-             *             // Test method delete()
-             *             System.out.println("test method delete: ");
-             *             if (!allBooks.isEmpty()) {
-             *                 Book bookToDelete = allBooks.get(0);
-             *                 bookCrudOperations.delete(bookToDelete);
-             *                 System.out.println("Deleted Book: " + bookToDelete);
-             *             }
-             *
-             *             // Test method findAll() après la suppression
-             *             System.out.println("test method findAll after delte: ");
-             *             allBooks = bookCrudOperations.findAll();
-             *             System.out.println("All Books after deletion:");
-             *             for (Book book : allBooks) {
-             *                 System.out.println(book);
-             *             }
-             */
-            /
+            //test method findAll() after adding
+            System.out.println("test method find all after adding: ");
+            allBooks= bookCrudOperations.findAll();
+            System.out.println("all Books:");
+            for (Book book: allBooks){
+                System.out.println(book);
+            }
+            // Test method delete()
+            System.out.println("test method delete: ");
+            if (!allBooks.isEmpty()) {
+                Book bookToDelete = allBooks.get(0);
+                bookCrudOperations.delete(bookToDelete);
+                System.out.println("Deleted Book: " + bookToDelete);
+            }
+
+            // Test method findAll() après la suppression
+            System.out.println("test method findAll after delte: ");
+            allBooks = bookCrudOperations.findAll();
+            System.out.println("All Books after deletion:");
+            for (Book book : allBooks) {
+                System.out.println(book);
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("An error occurred: "+ e.getMessage());
